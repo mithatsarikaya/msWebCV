@@ -171,6 +171,21 @@ export const personalProjects: TpersonalProjects = {
   },
 };
 
+export const mithatsSkills = personalProjects.lives.reduce(
+  (allSkillList: Skills, currentSkillList) => {
+    currentSkillList.techStack.map((t) => {
+      if (!allSkillList.includes(t)) {
+        allSkillList.push(t);
+      }
+    });
+
+    return allSkillList;
+  },
+  []
+);
+
+console.log({ mithatsSkills });
+
 // type ProgrammingLanguages = "JavaScript" | "TypeScript";
 // type RuntimeEnvironments = "Node.js";
 // type FrontEndLibraries = "React.js";
