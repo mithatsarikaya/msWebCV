@@ -18,7 +18,7 @@ type TpersonalProjects = {
   };
 };
 
-type Skill =
+export type Skill =
   | "JavaScript"
   | "TypeScript"
   | "React.js"

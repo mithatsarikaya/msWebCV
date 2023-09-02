@@ -15,12 +15,25 @@
     text-align: center;
     list-style: none;
     border: 1px solid black;
-    /* border-radius: 20%; */
     padding: 5px;
     cursor: pointer;
 }
 
+.skillSelected {
+    display: flex;
+    height: 50px;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
+    background-color: var(--main-gray);
+}
+
 .skill:hover{
-    background-color: gray;
+    background-color: var(--main-gray);
     scale: 1.2;
 }
