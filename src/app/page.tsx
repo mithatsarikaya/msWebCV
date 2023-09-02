@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import styles from "./page.module.css";
-import { Skill, personalProjects } from "@/app/utils/statics";
+import { Skill, Skills, personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
 
@@ -10,8 +10,23 @@ export default function Home() {
     name: s,
     isSelected: false,
   }));
+  let liveProjects = personalProjects.lives;
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
-  const [projects, setProjects] = useState(personalProjects.lives);
+  const [projects, setProjects] = useState(liveProjects);
+
+  //TODO: disable when skill is not belong to the last skills
+
+  //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
+  let lastSkills = projects.reduce((uniques: Skills, project) => {
+    project.techStack.map((p) => {
+      if (!uniques.includes(p)) {
+        uniques.push(p);
+      }
+    });
+
+    return uniques;
+  }, []);
+  console.log({ lastSkills });
 
   let selectedSkills = skills
     .filter((s) => s.isSelected == true)
@@ -29,15 +44,21 @@ export default function Home() {
     if (selectedSkills.length == 0) {
       setProjects(personalProjects.lives);
     } else {
-      setProjects((prevProjects) =>
-        prevProjects.filter((project) =>
-          project.techStack.some((p) => selectedSkills.includes(p))
+      setProjects(
+        liveProjects.filter((project) =>
+          // project.techStack.every((p) => selectedSkills.includes(p))
+          selectedSkills.every((p) => project.techStack.includes(p))
         )
+        // setProjects((prevProjects) =>
+        //   prevProjects.filter((project) =>
+        //     // project.techStack.every((p) => selectedSkills.includes(p))
+        //     selectedSkills.every((p) => project.techStack.includes(p))
+        //   )
       );
     }
 
     console.log(selectedSkills);
-  }, [selectedSkills]);
+  }, [selectedSkills.length]);
 
   return (
     <main>
@@ -54,12 +75,14 @@ export default function Home() {
         ))}
       </ul>
 
-      {projects.map((project) => (
-        <div key={project.title}>
-          <h5>{project.title}</h5>
-          <p>{project.techStack}</p>
-        </div>
-      ))}
+      <div className={styles.projectContainer}>
+        {projects.map((project) => (
+          <div key={project.title}>
+            <h5>{project.title}</h5>
+            <p>{project.techStack}</p>
+          </div>
+        ))}
+      </div>
     </main>
   );
 }

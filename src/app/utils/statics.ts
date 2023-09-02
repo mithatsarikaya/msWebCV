@@ -37,7 +37,7 @@ export type Skill =
   | "Linux"
   | "Bash";
 
-type Skills = Skill[];
+export type Skills = Skill[];
 
 export const personalProjects: TpersonalProjects = {
   lives: [

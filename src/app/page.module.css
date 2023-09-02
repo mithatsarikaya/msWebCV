@@ -37,3 +37,10 @@
     background-color: var(--main-gray);
     scale: 1.2;
 }
+
+.projectContainer{
+    /* min-height: fit-content; */
+    display: grid;
+    gap: 1rem;
+    margin-top: 50px;
+}
