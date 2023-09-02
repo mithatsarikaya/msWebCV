@@ -33,10 +33,11 @@ const SideBar = () => {
     <aside className={styles.aside}>
       <h3>Mithat Sarıkaya</h3>
       <p>Frontend Developer</p>
-      <div className="icons">
+      <div className={styles.icons}>
         {outerRoutes.map((or) => (
           <Link key={or.title} href={or.link} target="_blank">
             <Image
+              className={styles.icon}
               src={or.iconSrc}
               height={32}
               width={32}
