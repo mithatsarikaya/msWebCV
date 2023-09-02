@@ -184,8 +184,6 @@ export const mithatsSkills = personalProjects.lives.reduce(
   []
 );
 
-console.log({ mithatsSkills });
-
 // type ProgrammingLanguages = "JavaScript" | "TypeScript";
 // type RuntimeEnvironments = "Node.js";
 // type FrontEndLibraries = "React.js";

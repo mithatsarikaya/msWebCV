@@ -1,0 +1,22 @@
+.aside{
+    flex: 2;
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100vh;
+    border-right: 4px solid gray;
+    padding-right: 50px;
+}
+
+
+
+.routeContainer{
+    display: flex;
+    flex-direction: column;
+    gap:10px
+}
+
+.link{
+    text-decoration: none;
+}

@@ -1,0 +1,25 @@
+
+.skillContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 150px);
+    gap: 10px;
+}
+
+.skill{
+    display: flex;
+    height: 50px;
+    width: 120px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    list-style: none;
+    border: 1px solid black;
+    border-radius: 20%;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.skill:hover{
+    background-color: gray;
+    scale: 1.2;
+}
