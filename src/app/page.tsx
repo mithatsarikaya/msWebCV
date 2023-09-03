@@ -3,8 +3,8 @@ import Image from "next/image";
 import styles from "./page.module.css";
 import { Skill, Skills, personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
-import { ButtonHTMLAttributes, useEffect, useState } from "react";
-import { isIncludedList } from "./utils/helpers";
+import { useEffect, useState } from "react";
+import { isIncludedList, isListEmpty } from "./utils/helpers";
 
 export default function Home() {
   let skillsAddedIsSelectedProperty = mithatsSkills.map((s) => ({
@@ -14,8 +14,6 @@ export default function Home() {
   let liveProjects = personalProjects.lives;
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
   const [projects, setProjects] = useState(liveProjects);
-
-  //DONE: disable when skill is not belong to the last skills according to choosen ones
 
   //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
   let skillsAfterSelection = projects.reduce((uniques: Skills, project) => {
@@ -45,6 +43,13 @@ export default function Home() {
     });
   };
 
+  const handleClearSelectedSkillList = (
+    e: React.FormEvent<HTMLButtonElement>
+  ) => {
+    e.preventDefault();
+    setSkills(skillsAddedIsSelectedProperty);
+  };
+
   useEffect(() => {
     if (selectedSkillsNameList.length == 0) {
       setProjects(personalProjects.lives);
@@ -66,6 +71,7 @@ export default function Home() {
         {skills.map((s) => (
           <button
             key={s.name}
+            //DONE: disable when skill is not belong to the last skills according to choosen ones
             disabled={!isIncludedList(s.name, skillsAfterSelection)}
             onClick={(e) => toggleSelected(e, s.name)}
             className={s.isSelected ? styles.skillSelected : styles.skill}
@@ -74,6 +80,13 @@ export default function Home() {
           </button>
         ))}
       </ul>
+      <button
+        disabled={isListEmpty(selectedSkillsNameList)}
+        className={styles.refreshSkillsButton}
+        onClick={handleClearSelectedSkillList}
+      >
+        Refresh Skills
+      </button>
 
       <div className={styles.projectContainer}>
         {projects.map((project) => (
