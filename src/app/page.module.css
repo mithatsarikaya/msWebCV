@@ -44,3 +44,13 @@
     gap: 1rem;
     margin-top: 50px;
 }
+
+.project{
+    cursor: pointer;
+    height: fit-content;
+    width:  fit-content;
+}
+
+.project:hover{
+    scale: 1.1;
+}
