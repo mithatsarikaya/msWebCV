@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { Skill, Skills, personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
 import { ButtonHTMLAttributes, useEffect, useState } from "react";
+import { isIncludedList } from "./utils/helpers";
 
 export default function Home() {
   let skillsAddedIsSelectedProperty = mithatsSkills.map((s) => ({
@@ -14,7 +15,7 @@ export default function Home() {
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
   const [projects, setProjects] = useState(liveProjects);
 
-  //TODO: disable when skill is not belong to the last skills according to choosen ones
+  //DONE: disable when skill is not belong to the last skills according to choosen ones
 
   //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
   let skillsAfterSelection = projects.reduce((uniques: Skills, project) => {
@@ -32,7 +33,11 @@ export default function Home() {
     .filter((s) => s.isSelected == true)
     .map((s) => s.name);
 
-  const toggleSelected = (e: React.FormEvent<HTMLLIElement>, name: string) => {
+  const toggleSelected = (
+    e: React.FormEvent<HTMLButtonElement>,
+    name: string
+  ) => {
+    e.preventDefault();
     setSkills((prevSkills) => {
       return prevSkills.map((s) =>
         s.name == name ? { ...s, isSelected: !s.isSelected } : s
@@ -46,14 +51,8 @@ export default function Home() {
     } else {
       setProjects(
         liveProjects.filter((project) =>
-          // project.techStack.every((p) => selectedSkillsNameList.includes(p))
           selectedSkillsNameList.every((p) => project.techStack.includes(p))
         )
-        // setProjects((prevProjects) =>
-        //   prevProjects.filter((project) =>
-        //     // project.techStack.every((p) => selectedSkillsNameList.includes(p))
-        //     selectedSkillsNameList.every((p) => project.techStack.includes(p))
-        //   )
       );
     }
 
@@ -65,13 +64,14 @@ export default function Home() {
       <h1>Skills</h1>
       <ul className={styles.skillContainer}>
         {skills.map((s) => (
-          <li
-            onClick={(e) => toggleSelected(e, s.name)}
+          <button
             key={s.name}
+            disabled={!isIncludedList(s.name, skillsAfterSelection)}
+            onClick={(e) => toggleSelected(e, s.name)}
             className={s.isSelected ? styles.skillSelected : styles.skill}
           >
             {s.name}
-          </li>
+          </button>
         ))}
       </ul>
 
