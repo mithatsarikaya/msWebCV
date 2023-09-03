@@ -11,15 +11,15 @@
   font-size: 20px;
 }
 
+
+/* TODO: make grid great again lol */
 body{
-  display: flex;
-  flex-direction: row;
-  gap: 50px;
-  /* padding: 50px; */
+  display: grid;
+  grid-template-columns: 1fr 4fr;
   
 }
 
 .panel{
-  flex: 10;
-  padding-top: 50px;
+  /* display: inline; */
+  padding: 50px;
 }

@@ -2,18 +2,15 @@
 .skillContainer{
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(5, 150px);
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
     gap: 10px;
 }
 
 .skill{
-    display: flex;
-    height: 50px;
-    width: 120px;
+    font-size: 1rem;
     align-items: center;
     justify-content: center;
     text-align: center;
-    list-style: none;
     border: 1px solid black;
     padding: 5px;
     cursor: pointer;
@@ -21,20 +18,22 @@
 
 .skill:disabled{
     opacity: 0.4;
+    animation: fadeOpacityForDisabledSkill 0.5s;
 }
 
-.skillSelected {
-    display: flex;
-    height: 50px;
-    width: 120px;
+/* .skillSelected {
+    font-size: 1rem;
     align-items: center;
     justify-content: center;
     text-align: center;
-    list-style: none;
     border: 1px solid black;
     padding: 5px;
     cursor: pointer;
+} */
+
+.selected{
     background-color: var(--main-gray);
+    animation: fadeFromWhiteToGray 1s;
 }
 
 .skill:not(:disabled):hover{
@@ -42,15 +41,15 @@
     scale: 1.1;
 }
 .refreshSkillsButton{
-    display: block;
     cursor: pointer;
+    display: block;
     margin: 2rem auto;
     padding: 1rem 1rem;
     /* border-radius: 100%; */
 }
 
 .refreshSkillsButton:disabled{
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .refreshSkillsButton:not(:disabled):hover{
@@ -60,7 +59,7 @@
 .projectContainer{
     /* min-height: fit-content; */
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     margin-top: 50px;
 }
 
@@ -72,4 +71,25 @@
 
 .project:hover{
     scale: 1.1;
+}
+
+@keyframes fadeFromWhiteToGray {
+    0% {
+      background-color: white;
+    }
+  
+    100% {
+      background-color: var(--main-gray);
+    }
+}
+
+@keyframes fadeOpacityForDisabledSkill {
+    0% {
+      opacity: 1;
+    }
+    
+    100% {
+        opacity: 0.4;
+    }
+
 }

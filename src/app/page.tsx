@@ -74,7 +74,11 @@ export default function Home() {
             //DONE: disable when skill is not belong to the last skills according to choosen ones
             disabled={!isIncludedList(s.name, skillsAfterSelection)}
             onClick={(e) => toggleSelected(e, s.name)}
-            className={s.isSelected ? styles.skillSelected : styles.skill}
+            className={
+              s.isSelected
+                ? `${styles.skill} ${styles.selected} `
+                : styles.skill
+            }
           >
             {s.name}
           </button>
