@@ -1,11 +1,13 @@
 .aside{
+    position: sticky;
     display: flex;
     flex-direction: column;
     gap: 50px;
-    height: 100vh;
+    height: 100%;
     border-right: 4px solid gray;
     text-align: center;
     padding-top: 50px;
+    
 }
 
 .icons{
@@ -50,4 +52,11 @@
     color:white
 }
 
-
+@media (max-width: 600px) {
+   .icons{
+    display: flex;
+    flex-direction: column;
+   } 
+    
+    
+  }

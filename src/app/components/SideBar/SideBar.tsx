@@ -31,7 +31,9 @@ const SideBar = () => {
 
   return (
     <aside className={styles.aside}>
-      <h3>Mithat Sarıkaya</h3>
+      <Link style={{ textDecoration: "none" }} href={"/"}>
+        <h3>Mithat Sarıkaya</h3>
+      </Link>
       <p>Frontend Developer</p>
       <div className={styles.icons}>
         {outerRoutes.map((or) => (

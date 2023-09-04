@@ -1,21 +1,32 @@
 .body{
     display: grid;
-    grid-template-columns: 1fr 6fr;
+    grid-template-columns: 2fr 6fr;
     place-content: center;
 }
 
 .panel{
     padding: 50px;
-  }
+}
+
+.openNavWhenSmall{
+    display: none;
+}
 
 
-@media (max-width: 1080px) {
-    .layoutSideBar{
-        display: none;   
-       }
+@media (max-width: 600px) {
+    /* .layoutSideBar{
+        position: fixed;
+       } */
     .body{
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 5fr;
+      }
+      .openNavWhenSmall{
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        display: block;
+        cursor: pointer;
       }
     
     

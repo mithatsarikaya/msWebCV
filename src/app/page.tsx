@@ -99,7 +99,9 @@ export default function Home() {
             <h5>{project.title}</h5>
             {/* <textarea value={project.techStack}></textarea> */}
             {/* <p className={styles.techStack}>{project.techStack}</p> */}
-            <div className={styles.techStack}>{project.techStack}</div>
+            <div className={styles.techStack}>
+              {project.techStack.join(" ")}
+            </div>
           </div>
         ))}
       </div>

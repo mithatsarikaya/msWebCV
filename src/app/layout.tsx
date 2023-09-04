@@ -23,6 +23,7 @@ export default function RootLayout({
       </head>
 
       <body className={`${styles.body} ${inter.className}`}>
+        {/* <div className={styles.openNavWhenSmall}>---------</div> */}
         <div className={styles.layoutSideBar}>
           <SideBar />
         </div>
