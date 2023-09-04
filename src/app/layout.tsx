@@ -1,4 +1,5 @@
 import "./globals.css";
+import styles from "./layout.module.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SideBar from "./components/SideBar/SideBar";
@@ -21,9 +22,11 @@ export default function RootLayout({
         <link rel="icon" href="/icon.png" type="image/png" />
       </head>
 
-      <body className={inter.className}>
-        <SideBar />
-        <div className="panel">{children}</div>
+      <body className={`${styles.body} ${inter.className}`}>
+        <div className={styles.layoutSideBar}>
+          <SideBar />
+        </div>
+        <div className={styles.panel}>{children}</div>
       </body>
     </html>
   );

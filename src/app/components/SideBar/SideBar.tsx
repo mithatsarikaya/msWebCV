@@ -49,7 +49,7 @@ const SideBar = () => {
 
       <nav className={styles.routeContainer}>
         {insideRoutes.map((r) => (
-          <Link className={styles.link} href={r.link}>
+          <Link key={r.title} className={styles.link} href={r.link}>
             {r.title}
           </Link>
         ))}

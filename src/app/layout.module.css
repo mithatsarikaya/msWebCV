@@ -1,0 +1,22 @@
+.body{
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+    place-content: center;
+}
+
+.panel{
+    padding: 50px;
+  }
+
+
+@media (max-width: 1080px) {
+    .layoutSideBar{
+        display: none;   
+       }
+    .body{
+        display: grid;
+        grid-template-columns: 1fr;
+      }
+    
+    
+  }

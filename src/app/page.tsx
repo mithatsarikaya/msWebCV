@@ -12,6 +12,7 @@ export default function Home() {
     isSelected: false,
   }));
   let liveProjects = personalProjects.lives;
+
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
   const [projects, setProjects] = useState(liveProjects);
 
@@ -96,7 +97,9 @@ export default function Home() {
         {projects.map((project) => (
           <div className={styles.project} key={project.title}>
             <h5>{project.title}</h5>
-            <p>{project.techStack}</p>
+            {/* <textarea value={project.techStack}></textarea> */}
+            {/* <p className={styles.techStack}>{project.techStack}</p> */}
+            <div className={styles.techStack}>{project.techStack}</div>
           </div>
         ))}
       </div>

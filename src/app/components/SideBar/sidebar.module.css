@@ -1,6 +1,4 @@
 .aside{
-    /* flex: 2; */
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -8,8 +6,6 @@
     border-right: 4px solid gray;
     text-align: center;
     padding-top: 50px;
-    /* margin-top: 50px; */
-    /* padding-right: 50px; */
 }
 
 .icons{
@@ -53,3 +49,5 @@
     background-color: var(--main-gray);
     color:white
 }
+
+

@@ -11,15 +11,27 @@
   font-size: 20px;
 }
 
+@media (max-width: 600px) {
+  *{
+    font-size: 10px;
+  }
+}
+
 
 /* TODO: make grid great again lol */
-body{
+/* body{
   display: grid;
   grid-template-columns: 1fr 4fr;
-  
+  place-content: center;
+} */
+/* html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
 }
 
-.panel{
-  /* display: inline; */
-  padding: 50px;
-}
+html {
+  display: grid;
+  place-content: center;
+} */
+
