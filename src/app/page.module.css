@@ -29,7 +29,6 @@
 
 .skill:not(:disabled):hover{
     background-color: var(--main-gray);
-    scale: 1.1;
 }
 .refreshSkillsButton{
     cursor: pointer;
@@ -49,17 +48,18 @@
 .projectContainer{
     display:flex;
     flex-direction: column;
-    /* width: 12rem;     */
     width: auto;    
     gap:1rem;
 }
 
 .project{
+    max-width: max-content;
+    padding: 5px 10px 5px 10px;
     cursor: pointer;
 }
 
 .project:hover{
-    scale: 1.1;
+    outline: solid var(--main-gray);
 }
 
 .techStack{

@@ -45,15 +45,15 @@ const SideBar = () => {
       <Link style={{ textDecoration: "none" }} href={"/"}>
         <h3>Mithat Sarıkaya</h3>
       </Link>
-      <p>Frontend Developer</p>
+      <p className={styles.mithatsTitle}>Frontend Developer</p>
       <div className={styles.icons}>
         {outerRoutes.map((or) => (
           <Link key={or.title} href={or.link} target="_blank">
             <Image
               className={styles.icon}
               src={or.iconSrc}
-              height={32}
-              width={32}
+              height={64}
+              width={64}
               alt={`${or.title} icon`}
             />
           </Link>
