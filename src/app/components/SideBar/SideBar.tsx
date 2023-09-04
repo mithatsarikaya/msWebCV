@@ -1,11 +1,22 @@
+"use client";
 import Link from "next/link";
 import styles from "./sidebar.module.css";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 
 type TInsideRoutes = { title: string; link: string }[];
 type TOuterRoutes = { title: string; link: string; iconSrc: string }[];
 const SideBar = () => {
+  let pathname = usePathname();
+
+  console.log({ pathname });
+  console.log(typeof pathname);
+
   const insideRoutes: TInsideRoutes = [
+    {
+      title: "Home",
+      link: "/",
+    },
     {
       title: "Projects",
       link: "/projects",
@@ -51,7 +62,15 @@ const SideBar = () => {
 
       <nav className={styles.routeContainer}>
         {insideRoutes.map((r) => (
-          <Link key={r.title} className={styles.link} href={r.link}>
+          <Link
+            key={r.title}
+            className={
+              pathname == r.link
+                ? `${styles.link} ${styles.activeLink}`
+                : styles.link
+            }
+            href={r.link}
+          >
             {r.title}
           </Link>
         ))}

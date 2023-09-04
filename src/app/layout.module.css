@@ -1,10 +1,15 @@
 .body{
     display: grid;
-    grid-template-columns: 2fr 6fr;
+    grid-template-columns: 1fr 5fr;
     place-content: center;
 }
+/* .layoutSideBar{
+    position: sticky;
+    height: auto;
+} */
 
 .panel{
+    border-left: 4px solid gray;
     padding: 50px;
 }
 
@@ -20,6 +25,9 @@
     .body{
         display: grid;
         grid-template-columns: 1fr 5fr;
+      }
+      .panel{
+        padding: 10px;
       }
       .openNavWhenSmall{
         position: fixed;
