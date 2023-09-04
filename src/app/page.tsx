@@ -11,21 +11,38 @@ export default function Home() {
     name: s,
     isSelected: false,
   }));
-  let liveProjects = personalProjects.lives;
+  let liveProjects = personalProjects.lives.map((project) => ({
+    ...project,
+    isHighlighted: true,
+  }));
 
+  //TODO: sort projects bt isHighlighted property
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
   const [projects, setProjects] = useState(liveProjects);
 
   //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
-  let skillsAfterSelection = projects.reduce((uniques: Skills, project) => {
-    project.techStack.map((p) => {
-      if (!uniques.includes(p)) {
-        uniques.push(p);
-      }
-    });
+  let skillsAfterSelection = projects
+    .filter((pro) => pro.isHighlighted)
+    .reduce((uniques: Skills, project) => {
+      project.techStack.map((p) => {
+        if (!uniques.includes(p)) {
+          uniques.push(p);
+        }
+      });
 
-    return uniques;
-  }, []);
+      return uniques;
+    }, []);
+
+  //this part not checking if project is highlighted
+  // let skillsAfterSelection = projects.reduce((uniques: Skills, project) => {
+  //   project.techStack.map((p) => {
+  //     if (!uniques.includes(p)) {
+  //       uniques.push(p);
+  //     }
+  //   });
+
+  //   return uniques;
+  // }, []);
   console.log({ skillsAfterSelection });
 
   let selectedSkillsNameList = skills
@@ -53,17 +70,32 @@ export default function Home() {
 
   useEffect(() => {
     if (selectedSkillsNameList.length == 0) {
-      setProjects(personalProjects.lives);
+      setProjects(liveProjects);
     } else {
       setProjects(
-        liveProjects.filter((project) =>
-          selectedSkillsNameList.every((p) => project.techStack.includes(p))
-        )
+        liveProjects.map((project) => {
+          if (
+            selectedSkillsNameList.every((s) => project.techStack.includes(s))
+          ) {
+            return { ...project, isHighlighted: true };
+          } else {
+            return { ...project, isHighlighted: false };
+          }
+        })
       );
+
+      //this part deletes project according to skills selected
+      // setProjects(
+      //   liveProjects.filter((project) =>
+      //     selectedSkillsNameList.every((p) => project.techStack.includes(p))
+      //   )
+      // );
     }
 
     console.log(selectedSkillsNameList);
   }, [selectedSkillsNameList.length]);
+
+  console.log(projects);
 
   return (
     <main>
@@ -95,7 +127,14 @@ export default function Home() {
 
       <div className={styles.projectContainer}>
         {projects.map((project) => (
-          <div className={styles.project} key={project.title}>
+          <div
+            className={
+              project.isHighlighted
+                ? styles.project
+                : `${styles.project} ${styles.projectDisabled}`
+            }
+            key={project.title}
+          >
             <h5>{project.title}</h5>
             {/* <textarea value={project.techStack}></textarea> */}
             {/* <p className={styles.techStack}>{project.techStack}</p> */}

@@ -16,22 +16,11 @@
     font-size: 15px;
   }
 }
-
-
-/* TODO: make grid great again lol */
-/* body{
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  place-content: center;
-} */
-/* html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
+@media (max-width: 360px) {
+  *{
+    font-size: 12px;
+  }
 }
 
-html {
-  display: grid;
-  place-content: center;
-} */
+
 

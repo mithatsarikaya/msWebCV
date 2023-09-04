@@ -33,7 +33,7 @@
 .refreshSkillsButton{
     cursor: pointer;
     display: block;
-    margin: 2rem auto;
+    margin: 1rem auto;
     padding: 1rem 1rem;
 }
 
@@ -56,6 +56,11 @@
     max-width: max-content;
     padding: 5px 10px 5px 10px;
     cursor: pointer;
+}
+
+.projectDisabled{
+    opacity: 0.5;
+    animation: fadeOpacityForDisabledSkill 1s;
 }
 
 .project:hover{
