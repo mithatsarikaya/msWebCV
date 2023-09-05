@@ -123,6 +123,7 @@ export const personalProjects: TpersonalProjects = {
         "TypeScript",
         "MongoDb",
         "Tailwind Css",
+        "HTML",
         "JOSE",
       ],
       githubLink: "private",

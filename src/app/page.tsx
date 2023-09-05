@@ -4,7 +4,11 @@ import styles from "./page.module.css";
 import { Skill, Skills, personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
 import { useEffect, useState } from "react";
-import { isIncludedList, isListEmpty } from "./utils/helpers";
+import {
+  isIncludedList,
+  isListEmpty,
+  sortByHighlightFirstTitleSecond,
+} from "./utils/helpers";
 
 export default function Home() {
   let skillsAddedIsSelectedProperty = mithatsSkills.map((s) => ({
@@ -16,9 +20,11 @@ export default function Home() {
     isHighlighted: true,
   }));
 
-  //TODO: sort projects bt isHighlighted property
+  //DONE: sort projects bt isHighlighted property
   const [skills, setSkills] = useState(skillsAddedIsSelectedProperty);
-  const [projects, setProjects] = useState(liveProjects);
+  const [projects, setProjects] = useState(
+    sortByHighlightFirstTitleSecond(liveProjects)
+  );
 
   //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
   let skillsAfterSelection = projects
@@ -73,8 +79,8 @@ export default function Home() {
       setProjects(liveProjects);
     } else {
       setProjects(
-        liveProjects
-          .map((project) => {
+        sortByHighlightFirstTitleSecond(
+          liveProjects.map((project) => {
             if (
               selectedSkillsNameList.every((s) => project.techStack.includes(s))
             ) {
@@ -83,15 +89,7 @@ export default function Home() {
               return { ...project, isHighlighted: false };
             }
           })
-          .sort((a) => {
-            // Compare the `isHighlighted` property of the two projects.
-            // Projects with `isHighlighted` set to true should come first.
-            return a.isHighlighted === true
-              ? -1
-              : a.isHighlighted === false
-              ? 1
-              : 0;
-          })
+        )
       );
 
       //this part deletes project according to skills selected
@@ -101,11 +99,9 @@ export default function Home() {
       //   )
       // );
     }
-
-    console.log(selectedSkillsNameList);
   }, [selectedSkillsNameList.length]);
 
-  console.log(projects);
+  console.log({ projects });
 
   return (
     <main>
