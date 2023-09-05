@@ -73,15 +73,25 @@ export default function Home() {
       setProjects(liveProjects);
     } else {
       setProjects(
-        liveProjects.map((project) => {
-          if (
-            selectedSkillsNameList.every((s) => project.techStack.includes(s))
-          ) {
-            return { ...project, isHighlighted: true };
-          } else {
-            return { ...project, isHighlighted: false };
-          }
-        })
+        liveProjects
+          .map((project) => {
+            if (
+              selectedSkillsNameList.every((s) => project.techStack.includes(s))
+            ) {
+              return { ...project, isHighlighted: true };
+            } else {
+              return { ...project, isHighlighted: false };
+            }
+          })
+          .sort((a) => {
+            // Compare the `isHighlighted` property of the two projects.
+            // Projects with `isHighlighted` set to true should come first.
+            return a.isHighlighted === true
+              ? -1
+              : a.isHighlighted === false
+              ? 1
+              : 0;
+          })
       );
 
       //this part deletes project according to skills selected
