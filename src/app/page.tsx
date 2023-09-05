@@ -1,7 +1,6 @@
 "use client";
-import Image from "next/image";
 import styles from "./page.module.css";
-import { Skill, Skills, personalProjects } from "@/app/utils/statics";
+import { Skills, personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
 import { useEffect, useState } from "react";
 import {
@@ -9,8 +8,11 @@ import {
   isListEmpty,
   sortByHighlightFirstTitleSecond,
 } from "./utils/helpers";
+import { useRouter } from "next/navigation";
 
 export default function Home() {
+  const router = useRouter();
+
   let skillsAddedIsSelectedProperty = mithatsSkills.map((s) => ({
     name: s,
     isSelected: false,
@@ -74,6 +76,10 @@ export default function Home() {
     setSkills(skillsAddedIsSelectedProperty);
   };
 
+  const handleSendUserToClickedProject = (name: string) => {
+    router.push(`/projects/${name}`);
+  };
+
   useEffect(() => {
     if (selectedSkillsNameList.length == 0) {
       setProjects(liveProjects);
@@ -114,9 +120,7 @@ export default function Home() {
             disabled={!isIncludedList(s.name, skillsAfterSelection)}
             onClick={(e) => toggleSelected(e, s.name)}
             className={
-              s.isSelected
-                ? `${styles.skill} ${styles.selected} `
-                : styles.skill
+              s.isSelected ? `${styles.skill} ${styles.selected}` : styles.skill
             }
           >
             {s.name}
@@ -134,6 +138,7 @@ export default function Home() {
       <div className={styles.projectContainer}>
         {projects.map((project) => (
           <div
+            onClick={() => handleSendUserToClickedProject(project.id)}
             className={
               project.isHighlighted
                 ? styles.project
@@ -142,8 +147,6 @@ export default function Home() {
             key={project.title}
           >
             <h5>{project.title}</h5>
-            {/* <textarea value={project.techStack}></textarea> */}
-            {/* <p className={styles.techStack}>{project.techStack}</p> */}
             <div className={styles.techStack}>
               {project.techStack.join(" ")}
             </div>

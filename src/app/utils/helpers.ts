@@ -9,6 +9,7 @@ export const isListEmpty = (strList: string[]): boolean => {
 };
 
 export type TLiveProjects = {
+  id: string;
   isHighlighted: boolean;
   title: string;
   usefullFor?: string | undefined;
