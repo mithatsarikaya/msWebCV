@@ -122,7 +122,7 @@ export const personalProjects: TpersonalProjects = {
       id: "4",
       title: "www.baslanbas.com v2",
       usefullFor: `same as v1`,
-      details: `Unlike v1, this time I am also focusing on UI. Implementing routing in this project using App Router in Next.js, allowing users to navigate between different pages of the application.`,
+      details: `Unlike v1, UI is better. Implementing routing in this project using App Router in Next.js, allowing users to navigate between different pages of the application.`,
       techStack: [
         "Next.js",
         "React.js",
@@ -178,6 +178,10 @@ export const mithatsSkills = personalProjects.lives.reduce(
   },
   []
 );
+
+export const getProjectFromID = (id: string) => {
+  return personalProjects.lives.find((p) => p.id == id);
+};
 
 // type ProgrammingLanguages = "JavaScript" | "TypeScript";
 // type RuntimeEnvironments = "Node.js";

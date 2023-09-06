@@ -41,16 +41,6 @@ export default function Home() {
       return uniques;
     }, []);
 
-  //this part not checking if project is highlighted
-  // let skillsAfterSelection = projects.reduce((uniques: Skills, project) => {
-  //   project.techStack.map((p) => {
-  //     if (!uniques.includes(p)) {
-  //       uniques.push(p);
-  //     }
-  //   });
-
-  //   return uniques;
-  // }, []);
   console.log({ skillsAfterSelection });
 
   let selectedSkillsNameList = skills

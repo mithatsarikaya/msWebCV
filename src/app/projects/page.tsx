@@ -8,8 +8,8 @@ const Projects = () => {
       {liveProjects.map((proj) => (
         <article>
           <h1>{proj.title}</h1>
-          <div>{proj.details}</div>
-          <div>{proj.usefullFor}</div>
+          <span>{proj.usefullFor}</span>
+          {/* <span>{proj.usefullFor}</span> */}
           {/* <div>{proj.githubLink}</div> */}
         </article>
       ))}
