@@ -1,0 +1,14 @@
+.titleAndIconContainer{
+    display: flex;
+    align-items: center;
+    gap:0.3rem;
+}
+
+.titleIcon{
+    padding: 0.3rem;
+}
+
+.titleIcon:hover{
+    background-color: rgb(221, 221, 221);
+    border-radius: 50%;
+}

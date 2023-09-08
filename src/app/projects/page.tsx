@@ -1,4 +1,5 @@
 import { personalProjects } from "../utils/statics";
+import TitleProjectWithLinks from "./components/TitleProjectWithLinks/TitleProjectWithLinks";
 import styles from "./projects.module.css";
 
 const Projects = () => {
@@ -7,10 +8,13 @@ const Projects = () => {
     <div className={styles.projects}>
       {liveProjects.map((proj) => (
         <article>
-          <h1>{proj.title}</h1>
+          <TitleProjectWithLinks
+            key={proj.id}
+            title={proj.title}
+            githubLink={proj.githubLink}
+            liveUrl={proj.url}
+          />
           <span>{proj.usefullFor}</span>
-          {/* <span>{proj.usefullFor}</span> */}
-          {/* <div>{proj.githubLink}</div> */}
         </article>
       ))}
     </div>

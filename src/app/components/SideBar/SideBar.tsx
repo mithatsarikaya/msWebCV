@@ -9,9 +9,6 @@ type TOuterRoutes = { title: string; link: string; iconSrc: string }[];
 const SideBar = () => {
   let pathname = usePathname();
 
-  console.log({ pathname });
-  console.log(typeof pathname);
-
   const insideRoutes: TInsideRoutes = [
     {
       title: "Home",
