@@ -41,8 +41,6 @@ export default function Home() {
       return uniques;
     }, []);
 
-  console.log({ skillsAfterSelection });
-
   let selectedSkillsNameList = skills
     .filter((s) => s.isSelected == true)
     .map((s) => s.name);
@@ -96,8 +94,6 @@ export default function Home() {
       // );
     }
   }, [selectedSkillsNameList.length]);
-
-  console.log({ projects });
 
   return (
     <main>

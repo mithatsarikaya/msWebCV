@@ -10,11 +10,12 @@ const Projects = () => {
         <article>
           <TitleProjectWithLinks
             key={proj.id}
+            projID={proj.id}
             title={proj.title}
             githubLink={proj.githubLink}
             liveUrl={proj.url}
           />
-          <span>{proj.usefullFor}</span>
+          <span>{proj.oneLineDescription}</span>
         </article>
       ))}
     </div>

@@ -3,6 +3,7 @@ import Link from "next/link";
 import styles from "./titleProject.module.css";
 
 type TTitleProjectWithLinksProps = {
+  projID: string;
   title: string;
   githubLink: string | "private";
   liveUrl?: string;
@@ -12,10 +13,13 @@ const TitleProjectWithLinks = ({
   title,
   githubLink,
   liveUrl,
+  projID,
 }: TTitleProjectWithLinksProps) => {
   return (
     <div className={styles.titleAndIconContainer}>
-      <h1>{title}</h1>
+      <Link href={`/projects/${projID}`}>
+        <h1>{title}</h1>
+      </Link>
       {githubLink != "private" && (
         <Link href={githubLink} target="_blank">
           <Image
