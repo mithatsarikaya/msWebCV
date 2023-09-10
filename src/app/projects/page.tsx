@@ -14,6 +14,7 @@ const Projects = () => {
             title={proj.title}
             githubLink={proj.githubLink}
             liveUrl={proj.url}
+            locateToProjectDetails={true}
           />
           <span>{proj.oneLineDescription}</span>
         </article>

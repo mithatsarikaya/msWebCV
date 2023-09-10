@@ -7,6 +7,7 @@ type TTitleProjectWithLinksProps = {
   title: string;
   githubLink: string | "private";
   liveUrl?: string;
+  locateToProjectDetails: boolean;
 };
 
 const TitleProjectWithLinks = ({
@@ -14,12 +15,18 @@ const TitleProjectWithLinks = ({
   githubLink,
   liveUrl,
   projID,
+  locateToProjectDetails,
 }: TTitleProjectWithLinksProps) => {
   return (
     <div className={styles.titleAndIconContainer}>
-      <Link href={`/projects/${projID}`}>
+      {locateToProjectDetails ? (
+        <Link href={`/projects/${projID}`}>
+          <h1>{title}</h1>
+        </Link>
+      ) : (
         <h1>{title}</h1>
-      </Link>
+      )}
+
       {githubLink != "private" && (
         <Link href={githubLink} target="_blank">
           <Image
