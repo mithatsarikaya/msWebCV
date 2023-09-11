@@ -1,8 +1,20 @@
 import { getProjectFromID } from "@/app/utils/statics";
 import TitleProjectWithLinks from "../components/TitleProjectWithLinks/TitleProjectWithLinks";
+import style from "./projectsID.module.css";
 
 const ProjectWithID = ({ params }: { params: { id: string } }) => {
   const projectID = params.id;
+  let notShowKeys = [
+    "id",
+    "title",
+    "oneLineDescription",
+    "possibleDelay",
+    "githubLink",
+    "url",
+    ,
+    "techStack",
+  ];
+
   let project = getProjectFromID(projectID);
   return (
     <div>
@@ -16,7 +28,26 @@ const ProjectWithID = ({ params }: { params: { id: string } }) => {
             liveUrl={project?.url}
             locateToProjectDetails={false}
           />
-          {Object.keys(project)}
+          {Object.keys(project)
+            .filter((k) => !notShowKeys.includes(k))
+            .map((objKey) => (
+              <div
+                // className={style.detailsDiv}
+                key={objKey}
+              >
+                <label style={{ color: "red" }} htmlFor="">
+                  {objKey}
+                </label>
+                <p>{project && project[objKey as keyof typeof project]}</p>
+              </div>
+            ))}
+
+          <div>
+            <label style={{ color: "red" }} htmlFor="">
+              Tech Stack
+            </label>
+            <p>{project.techStack.join(" ")}</p>
+          </div>
         </>
       )}
     </div>

@@ -28,7 +28,7 @@ export type Skill =
   | "Node.js"
   | "HTML"
   | "CSS"
-  | "Tailwind Css"
+  | "TailwindCss"
   | "EJS"
   | "NextAuth.js"
   | "JWT"
@@ -118,7 +118,7 @@ export const personalProjects: TpersonalProjects = {
         "Node.js",
         "MongoDb",
         "NextAuth.js",
-        "Tailwind Css",
+        "TailwindCss",
         "HTML",
       ],
       githubLink: "https://github.com/mithatsarikaya/twitterCloneNextjs",
@@ -138,7 +138,7 @@ export const personalProjects: TpersonalProjects = {
         "Node.js",
         "TypeScript",
         "MongoDb",
-        "Tailwind Css",
+        "TailwindCss",
         "HTML",
         "JOSE",
       ],
