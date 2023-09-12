@@ -1,8 +1,22 @@
 import { aboutMeFromCV } from "@/app/utils/statics";
-
+import Link from "next/link";
+import Image from "next/image";
+import style from "./aboutme.module.css";
 const AboutMe = () => {
   return (
-    <div>
+    <div style={{ display: "grid", gap: "2rem", fontFamily: "monospace" }}>
+      <Link
+        className={style.pdfLink}
+        href={`/cv/mithatSarıkayaCV28082023.pdf`}
+        target="_blank"
+      >
+        <Image
+          src={`/icons/icons8-pdf-60.png`}
+          height={64}
+          width={64}
+          alt={`cv pdf icon`}
+        />
+      </Link>
       <article>
         <h1>SUMMARY</h1>
         <h2>Objective</h2>
@@ -19,7 +33,8 @@ const AboutMe = () => {
               {edu.school}
             </h2>
             <span style={{ color: "#808080" }}>{edu.startAndEndDate}</span>
-            <p>{edu.shortInfo}</p>
+            <p>{edu.departmant}</p>
+            <p style={{ fontWeight: "500" }}>{edu.shortInfo}</p>
           </div>
         ))}
       </article>

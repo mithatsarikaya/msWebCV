@@ -1,0 +1,8 @@
+.pdfLink{
+    width: fit-content;
+    padding-bottom: 5px;
+}
+
+.pdfLink:hover{
+    background-color: rgb(255, 128, 149);
+}
