@@ -231,8 +231,7 @@ export const aboutMeFromCV: TaboutMe = {
     *Reducing the number of paint changes in the Paint Line (CCL) by 3 times (27% -> 9%), ensuring production efficiency and reducing costs (paint waste, electricity consumption, natural gas consumption, etc.)
     *Analyzing the paint consumption of the Paint Line, changing the calculation method and calculating the actual cost.
     *Minimizing the transition situations thanks to the daily production and order tracking of the Galvanized Line (CGL), thus ensuring the production efficiency of the line.
-    *Reducing the amount of scrap in width/thickness transitions by ensuring the production efficiency of the Tandem Line (PLTCM)
-    `,
+    *Reducing the amount of scrap in width/thickness transitions by ensuring the production efficiency of the Tandem Line (PLTCM)`,
   },
 };
 

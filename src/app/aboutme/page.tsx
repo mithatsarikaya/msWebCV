@@ -3,8 +3,16 @@ import Link from "next/link";
 import Image from "next/image";
 import style from "./aboutme.module.css";
 const AboutMe = () => {
+  let doneListAtWork = aboutMeFromCV.workExperience.jobDescription.split("\n");
+
   return (
-    <div style={{ display: "grid", gap: "2rem", fontFamily: "monospace" }}>
+    <div
+      style={{
+        display: "grid",
+        // textAlign: "center",
+        gap: "2rem",
+      }}
+    >
       <Link
         className={style.pdfLink}
         href={`/cv/mithatSarıkayaCV28082023.pdf`}
@@ -37,6 +45,14 @@ const AboutMe = () => {
             <p style={{ fontWeight: "500" }}>{edu.shortInfo}</p>
           </div>
         ))}
+      </article>
+      <article>
+        <h1>WORK EXPERIENCE</h1>
+        <ul>
+          {doneListAtWork.map((sent, idx) => (
+            <li key={idx}>{sent}</li>
+          ))}
+        </ul>
       </article>
     </div>
   );
