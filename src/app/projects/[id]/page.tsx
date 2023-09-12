@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const ProjectWithID = ({ params }: { params: { id: string } }) => {
   const projectID = params.id;
-  let showKeys = ["usefullFor", "details"];
+  let showKeys = ["usefulFor", "details"];
 
   let project = getProjectFromID(projectID);
   return (
