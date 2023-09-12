@@ -1,19 +1,11 @@
 import { getProjectFromID } from "@/app/utils/statics";
 import TitleProjectWithLinks from "../components/TitleProjectWithLinks/TitleProjectWithLinks";
 import style from "./projectsID.module.css";
+import Image from "next/image";
 
 const ProjectWithID = ({ params }: { params: { id: string } }) => {
   const projectID = params.id;
-  let notShowKeys = [
-    "id",
-    "title",
-    "oneLineDescription",
-    "possibleDelay",
-    "githubLink",
-    "url",
-    ,
-    "techStack",
-  ];
+  let showKeys = ["usefullFor", "details"];
 
   let project = getProjectFromID(projectID);
   return (
@@ -29,7 +21,7 @@ const ProjectWithID = ({ params }: { params: { id: string } }) => {
             locateToProjectDetails={false}
           />
           {Object.keys(project)
-            .filter((k) => !notShowKeys.includes(k))
+            .filter((k) => showKeys.includes(k))
             .map((objKey) => (
               <div
                 // className={style.detailsDiv}
@@ -50,27 +42,23 @@ const ProjectWithID = ({ params }: { params: { id: string } }) => {
           </div>
         </>
       )}
+      {project?.pictureSrc && (
+        <Image
+          src={project?.pictureSrc}
+          alt="project picture"
+          width={0}
+          height={0}
+          sizes="100vw"
+          style={{
+            width: "80%",
+            height: "auto",
+            marginTop: "2rem",
+            border: "solid 1px salmon",
+          }}
+        />
+      )}
     </div>
   );
 };
 
 export default ProjectWithID;
-
-// check the pod v1
-// id
-// 0
-// title
-// check the pod v1
-// oneLineDescription
-// If you cook for more than one meal, then this app will help you to take specific food from the food pod
-// usefullFor
-// This web app is for someone who cares about calorie intake. When you cook rice and if it is more than one lunch, you need to calculate how much you left on the pod where you put your cooked rice.
-// details
-// This was my first project. Even if it is publicly accessible, the only way to register is to ask me. This app is for only me and my brother.
-// techStack
-// JavaScriptEJSNode.jsExpress.jsMongoDbHTMLCSS
-// githubLink
-// https://github.com/mithatsarikaya/checkthePod
-// url
-// https://checkthepod.onrender.com/pod
-// possibleDelay

@@ -9,6 +9,7 @@ type TpersonalProjects = {
     url?: string;
     githubLink: string | "private";
     possibleDelay?: boolean;
+    pictureSrc?: string;
   }[];
   smallRepos: {
     desc: string;
@@ -63,6 +64,7 @@ export const personalProjects: TpersonalProjects = {
       githubLink: "https://github.com/mithatsarikaya/checkthePod",
       url: " https://checkthepod.onrender.com/pod",
       possibleDelay: true,
+      pictureSrc: "/projectPngs/checkthepodv1.png",
     },
     {
       id: "1",
@@ -83,6 +85,7 @@ export const personalProjects: TpersonalProjects = {
       githubLink: "private",
       url: "https://old.baslanbas.com/",
       possibleDelay: true,
+      pictureSrc: "/projectPngs/blbv1.png",
     },
     {
       id: "2",
@@ -105,6 +108,7 @@ export const personalProjects: TpersonalProjects = {
       githubLink: "https://github.com/mithatsarikaya/checkThePodMern",
       url: "https://check-the-pod-mern.vercel.app/",
       possibleDelay: true,
+      pictureSrc: "/projectPngs/checkthepodv2.png",
     },
     {
       id: "3",
@@ -124,6 +128,7 @@ export const personalProjects: TpersonalProjects = {
       githubLink: "https://github.com/mithatsarikaya/twitterCloneNextjs",
       url: "https://twitter-for-nuuklu.vercel.app/",
       possibleDelay: false,
+      pictureSrc: "/projectPngs/minitwitterclone.png",
     },
     {
       id: "4",
@@ -145,6 +150,7 @@ export const personalProjects: TpersonalProjects = {
       githubLink: "private",
       url: "https://www.baslanbas.com/",
       possibleDelay: false,
+      pictureSrc: "/projectPngs/blbv2.png",
     },
   ],
   smallRepos: {
