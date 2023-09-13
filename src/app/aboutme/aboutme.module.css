@@ -1,8 +1,11 @@
 .pdfLink{
     width: fit-content;
-    padding-bottom: 3px;
+    padding: 3px;
+    display: flex;
+    text-align: center;
+    align-items: center;
 }
 
 .pdfLink:hover{
-    background-color: rgb(255, 128, 149);
+    outline: auto;
 }

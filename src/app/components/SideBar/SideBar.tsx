@@ -19,7 +19,7 @@ const SideBar = () => {
       link: "/projects",
     },
     {
-      title: "About Me",
+      title: "Me & CV",
       link: "/aboutme",
     },
   ];

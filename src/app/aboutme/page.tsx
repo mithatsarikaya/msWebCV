@@ -18,6 +18,7 @@ const AboutMe = () => {
         href={`/cv/mithatSarıkayaCV28082023.pdf`}
         target="_blank"
       >
+        <label>CV:</label>
         <Image
           src={`/icons/icons8-pdf-60.png`}
           height={64}
@@ -48,6 +49,12 @@ const AboutMe = () => {
       </article>
       <article>
         <h1>WORK EXPERIENCE</h1>
+        <h2 style={{ display: "inline-block" }}>
+          {aboutMeFromCV.workExperience.company}
+        </h2>
+        <h3 style={{ display: "inline-block" }}>
+          {aboutMeFromCV.workExperience.title}
+        </h3>
         <ul>
           {doneListAtWork.map((sent, idx) => (
             <li key={idx}>{sent}</li>
