@@ -1,14 +1,11 @@
 "use client";
 import styles from "./page.module.css";
-import { Skills, personalProjects } from "@/app/utils/statics";
+import { personalProjects } from "@/app/utils/statics";
 import { mithatsSkills } from "@/app/utils/statics";
 import { useEffect, useState } from "react";
-import {
-  isIncludedList,
-  isListEmpty,
-  sortByHighlightFirstTitleSecond,
-} from "./utils/helpers";
+import { sortByHighlightFirstTitleSecond } from "./utils/helpers";
 import { useRouter } from "next/navigation";
+import SkillsSection from "./components/SkillsSection/SkillsSection";
 
 export default function Home() {
   const router = useRouter();
@@ -28,34 +25,9 @@ export default function Home() {
     sortByHighlightFirstTitleSecond(liveProjects)
   );
 
-  //when user starts to select skill, this will prevent user select js and ts at the same time. beacuse they are not in the same project
-  let skillsAfterSelection = projects
-    .filter((pro) => pro.isHighlighted)
-    .reduce((uniques: Skills, project) => {
-      project.techStack.map((p) => {
-        if (!uniques.includes(p)) {
-          uniques.push(p);
-        }
-      });
-
-      return uniques;
-    }, []);
-
   let selectedSkillsNameList = skills
     .filter((s) => s.isSelected == true)
     .map((s) => s.name);
-
-  const toggleSelected = (
-    e: React.FormEvent<HTMLButtonElement>,
-    name: string
-  ) => {
-    e.preventDefault();
-    setSkills((prevSkills) => {
-      return prevSkills.map((s) =>
-        s.name == name ? { ...s, isSelected: !s.isSelected } : s
-      );
-    });
-  };
 
   const handleClearSelectedSkillList = (
     e: React.FormEvent<HTMLButtonElement>
@@ -97,29 +69,13 @@ export default function Home() {
 
   return (
     <main>
-      <h1>Skills</h1>
-      <ul className={styles.skillContainer}>
-        {skills.map((s) => (
-          <button
-            key={s.name}
-            //DONE: disable when skill is not belong to the last skills according to choosen ones
-            disabled={!isIncludedList(s.name, skillsAfterSelection)}
-            onClick={(e) => toggleSelected(e, s.name)}
-            className={
-              s.isSelected ? `${styles.skill} ${styles.selected}` : styles.skill
-            }
-          >
-            {s.name}
-          </button>
-        ))}
-      </ul>
-      <button
-        disabled={isListEmpty(selectedSkillsNameList)}
-        className={styles.refreshSkillsButton}
-        onClick={handleClearSelectedSkillList}
-      >
-        Refresh Skills
-      </button>
+      <SkillsSection
+        skills={skills}
+        setSkills={setSkills}
+        projects={projects}
+        selectedSkillsNameList={selectedSkillsNameList}
+        handleClearSelectedSkillList={handleClearSelectedSkillList}
+      />
 
       <div className={styles.projectContainer}>
         {projects.map((project) => (
@@ -129,6 +85,7 @@ export default function Home() {
               project.isHighlighted
                 ? styles.project
                 : `${styles.project} ${styles.projectDisabled}`
+              // : `${styles.projectDisabled}`
             }
             key={project.title}
           >
