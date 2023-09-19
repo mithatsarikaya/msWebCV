@@ -1,0 +1,12 @@
+.pdfLink{
+    width: fit-content;
+    padding: 3px;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.pdfLink:hover{
+    outline: auto;
+    /* background-color: pink; */
+}

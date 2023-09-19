@@ -1,7 +1,6 @@
 import { aboutMeFromCV } from "@/app/utils/statics";
-import Link from "next/link";
-import Image from "next/image";
 import style from "./aboutme.module.css";
+import CVSection from "./components/CVSection/CVSection";
 const AboutMe = () => {
   let doneListAtWork = aboutMeFromCV.workExperience.jobDescription.split("\n");
 
@@ -9,23 +8,11 @@ const AboutMe = () => {
     <div
       style={{
         display: "grid",
-        // textAlign: "center",
         gap: "2rem",
       }}
     >
-      <Link
-        className={style.pdfLink}
-        href={`/cv/mithatSarıkayaCV28082023.pdf`}
-        target="_blank"
-      >
-        <label>CV:</label>
-        <Image
-          src={`/icons/icons8-pdf-60.png`}
-          height={64}
-          width={64}
-          alt={`cv pdf icon`}
-        />
-      </Link>
+      <CVSection />
+
       <article>
         <h1>SUMMARY</h1>
         <h2>Objective</h2>
