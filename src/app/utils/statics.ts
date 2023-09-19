@@ -190,6 +190,7 @@ type TaboutMe = {
     company: string;
     title: string;
     jobDescription: string;
+    startAndEndDate: string;
   };
   education: {
     school: string;
@@ -225,6 +226,7 @@ export const aboutMeFromCV: TaboutMe = {
   ],
   workExperience: {
     company: "Tosyalı Toyo",
+    startAndEndDate: "05.2018 - 06.2021",
     title: "Planning Engineer",
     jobDescription: `*Management of ~65% of the total production in the facility
     *By analyzing the width information of raw material suppliers; Contribution to production from scrap after Slitting Line production optimization

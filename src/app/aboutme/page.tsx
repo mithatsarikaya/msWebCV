@@ -20,6 +20,7 @@ const AboutMe = () => {
         <h2>ME</h2>
         <p>{aboutMeFromCV.summary.me}</p>
       </article>
+      <hr />
       <article>
         <h1>EDUCATION</h1>
         {aboutMeFromCV.education.map((edu) => (
@@ -34,14 +35,18 @@ const AboutMe = () => {
           </div>
         ))}
       </article>
+      <hr />
       <article>
         <h1>WORK EXPERIENCE</h1>
-        <h2 style={{ display: "inline-block" }}>
+        <h2 style={{ display: "inline-block", marginRight: "1rem" }}>
           {aboutMeFromCV.workExperience.company}
         </h2>
-        <h3 style={{ display: "inline-block" }}>
+        <h3 style={{ display: "inline-block", marginRight: "1rem" }}>
           {aboutMeFromCV.workExperience.title}
         </h3>
+        <span style={{ color: "#808080" }}>
+          {aboutMeFromCV.workExperience.startAndEndDate}
+        </span>
         <ul>
           {doneListAtWork.map((sent, idx) => (
             <li key={idx}>{sent}</li>
