@@ -1,7 +1,7 @@
 .skillContainer{
     margin-top: 20px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(7rem, 1fr));
     gap: 10px;
 }
 
@@ -71,7 +71,8 @@
     .skillContainer{
         margin-top: 20px;
         display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(max-content, 1fr));
+        /* grid-template-columns: repeat(auto-fill, minmax(6rem, 1fr)); */
         gap: 10px;
     }
     
