@@ -7,9 +7,8 @@ const Projects = () => {
   return (
     <div className={styles.projects}>
       {liveProjects.map((proj) => (
-        <article>
+        <article key={proj.id}>
           <TitleProjectWithLinks
-            key={proj.id}
             projID={proj.id}
             title={proj.title}
             githubLink={proj.githubLink}

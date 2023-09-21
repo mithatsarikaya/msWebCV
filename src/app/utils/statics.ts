@@ -92,7 +92,8 @@ export const personalProjects: TpersonalProjects = {
       title: "check the pod v2",
       oneLineDescription:
         "Better UI and better functionality of check the pod v1",
-      usefulFor: "same reason as v1 of it.",
+      usefulFor:
+        "This web app is for someone who cares about calorie intake. When you cook rice and if it is more than one lunch, you need to calculate how much you left on the pod where you put your cooked rice.",
       details: `Unlike v1 of this app, now users can register, create their own pod. While the creator of the pod can delete the pod or add other users, users of the pod can only put or take food from the pod. Implemented routing in this project using React Router, allowing users to navigate between different pages of the application`,
       techStack: [
         "Vite.js",
@@ -135,7 +136,7 @@ export const personalProjects: TpersonalProjects = {
       title: "www.baslanbas.com v2",
       oneLineDescription:
         "UI is far better than first version of it (old.baslanbas.com)",
-      usefulFor: `same as v1`,
+      usefulFor: `If you want to record your exercise session in order to see your progress, this app is just for you. This is a type of an app that functionality comes before design.`,
       details: `Unlike v1, UI is better. Implementing routing in this project using App Router in Next.js, allowing users to navigate between different pages of the application.`,
       techStack: [
         "Next.js",
