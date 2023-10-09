@@ -153,6 +153,16 @@ export const personalProjects: TpersonalProjects = {
       possibleDelay: false,
       pictureSrc: "/projectPngs/blbv2.png",
     },
+    {
+      id: "5",
+      details: "Solving React interview questions that i see online",
+      url: "https://react-challenges-pearl.vercel.app/",
+      githubLink: "https://github.com/mithatsarikaya/reactChallenges",
+      techStack: ["HTML", "CSS", "TypeScript", "Next.js", "React.js"],
+      title: "React Challenges",
+      oneLineDescription: "Solving React interview questions that i see online",
+      pictureSrc: "/projectPngs/reactChallenges.png",
+    },
   ],
   smallRepos: {
     desc: `This repos was created to understand the difference between react.js’ state based and vanilla.js' event based logic. All of them written with react.js and vanilla.js`,
