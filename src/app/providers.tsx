@@ -13,8 +13,7 @@ import { useEffect, useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  // const theme = useSelector((state: RootState) => state.theme);
-  // const dispatch = useDispatch();
+  const theme = useSelector((state: RootState) => state.theme);
   // const [mounted, setMounted] = useState(false);
 
   // useEffect(() => {
@@ -27,14 +26,16 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   // console.log({ mounted });
 
+  //TODO: try to get redux state at body tag
+
   return (
     <Provider store={store}>
       <body className={`${styles.body} ${inter.className}`}>
         <div className={styles.layoutSideBar}>
           <SideBar />
-          <LightDarkMode />
         </div>
         <div className={styles.panel}>{children}</div>
+        <LightDarkMode />
       </body>
     </Provider>
   );
