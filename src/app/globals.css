@@ -1,30 +1,33 @@
-:root{
-  --main-gray:rgb(203, 203, 203);
-  --main-green:rgb(182, 255, 87);
+:root {
+  --main-gray: rgb(203, 203, 203);
+  --main-green: rgb(182, 255, 87);
 }
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: white;
-  color:black;
+  /* background-color: white; */
+  /* color: black; */
   font-size: 20px;
   font-family: monospace;
 }
 
+a {
+  color: inherit;
+}
 
+button:disabled {
+  color: inherit;
+}
 
 @media (max-width: 600px) {
-  *{
+  * {
     font-size: 15px;
   }
 }
 @media (max-width: 360px) {
-  *{
+  * {
     font-size: 12px;
   }
 }
-
-
-

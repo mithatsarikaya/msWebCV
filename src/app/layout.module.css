@@ -1,50 +1,49 @@
-.body{
-    display: grid;
-    grid-template-columns: 1fr 5fr;
-    place-content: center;
+.body {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  place-content: center;
+  color: white;
+  background-color: black;
 }
 /* .layoutSideBar{
     position: sticky;
     height: auto;
 } */
 
-.panel{
-    border-left: 4px solid gray;
-    padding: 50px;
-    min-height: 100vh;
+.panel {
+  border-left: 4px solid gray;
+  padding: 50px;
+  min-height: 100vh;
 }
 
-.openNavWhenSmall{
-    display: none;
+.openNavWhenSmall {
+  display: none;
 }
-
 
 @media (max-width: 672px) {
-    /* .layoutSideBar{
+  /* .layoutSideBar{
         position: fixed;
        } */
-    /* .body{
+  /* .body{
         display: grid;
         grid-template-columns: 1fr 5fr;
       } */
 
-      .body{
-        display: grid;
-        grid-template-columns: 1fr;
-        /* grid-template-rows: 1fr 1fr; */
-        /* grid-auto-flow: row; */
-      }
-      .panel{
-        padding: 10px;
-        border: none;
-      }
-      .openNavWhenSmall{
-        position: fixed;
-        top: 1rem;
-        left: 1rem;
-        display: block;
-        cursor: pointer;
-      }
-    
-    
+  .body {
+    display: grid;
+    grid-template-columns: 1fr;
+    /* grid-template-rows: 1fr 1fr; */
+    /* grid-auto-flow: row; */
   }
+  .panel {
+    padding: 10px;
+    border: none;
+  }
+  .openNavWhenSmall {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    display: block;
+    cursor: pointer;
+  }
+}

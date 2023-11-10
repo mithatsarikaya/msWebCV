@@ -3,6 +3,7 @@ import styles from "./layout.module.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import SideBar from "./components/SideBar/SideBar";
+import LightDarkMode from "./components/LightDarkMode/LightDarkMode";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -26,6 +27,7 @@ export default function RootLayout({
         {/* <div className={styles.openNavWhenSmall}>---------</div> */}
         <div className={styles.layoutSideBar}>
           <SideBar />
+          <LightDarkMode />
         </div>
         <div className={styles.panel}>{children}</div>
       </body>
