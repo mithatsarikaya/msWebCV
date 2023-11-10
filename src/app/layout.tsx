@@ -1,11 +1,6 @@
 import "./globals.css";
-import styles from "./layout.module.css";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import SideBar from "./components/SideBar/SideBar";
-import LightDarkMode from "./components/LightDarkMode/LightDarkMode";
-
-const inter = Inter({ subsets: ["latin"] });
+import Providers from "./providers";
 
 export const metadata: Metadata = {
   title: "Mithat Sarikaya Portfolio",
@@ -22,15 +17,16 @@ export default function RootLayout({
       <head>
         <link rel="icon" href="/icon.png" type="image/png" />
       </head>
-
-      <body className={`${styles.body} ${inter.className}`}>
-        {/* <div className={styles.openNavWhenSmall}>---------</div> */}
-        <div className={styles.layoutSideBar}>
-          <SideBar />
-          <LightDarkMode />
-        </div>
-        <div className={styles.panel}>{children}</div>
-      </body>
+      {/* <Provider store={store}>
+        <body className={`${styles.body} ${inter.className}`}>
+          <div className={styles.layoutSideBar}>
+            <SideBar />
+            <LightDarkMode />
+          </div>
+          <div className={styles.panel}>{children}</div>
+        </body>
+      </Provider> */}
+      <Providers>{children}</Providers>,
     </html>
   );
 }

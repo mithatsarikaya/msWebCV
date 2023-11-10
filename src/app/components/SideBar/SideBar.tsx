@@ -3,6 +3,8 @@ import Link from "next/link";
 import styles from "./sidebar.module.css";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store/store";
 
 type TInsideRoutes = { title: string; link: string }[];
 type TOuterRoutes = { title: string; link: string; iconSrc: string }[];
@@ -37,6 +39,10 @@ const SideBar = () => {
     },
   ];
 
+  const theme = useSelector((state: RootState) => state.theme.value);
+
+  console.log(theme);
+
   return (
     <aside className={styles.aside}>
       <Link style={{ textDecoration: "none" }} href={"/"}>
@@ -47,7 +53,11 @@ const SideBar = () => {
         {outerRoutes.map((or) => (
           <Link key={or.title} href={or.link} target="_blank">
             <Image
-              className={styles.icon}
+              className={
+                theme == "dark" && or.title == "Github"
+                  ? `${styles.icon} ${styles.darkMode}`
+                  : styles.icon
+              }
               src={or.iconSrc}
               height={64}
               width={64}
