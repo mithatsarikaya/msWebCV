@@ -30,7 +30,7 @@ export default function RootLayout({
         </body>
       </Provider> */}
       <body className={`${styles.body} ${inter.className}`}>
-        <Providers>{children}</Providers>,
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
