@@ -1,5 +1,6 @@
+"use client";
 import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { getTheme } from "@/store/features/thememode/thememodeSlice";
 
 const Panel = ({
   children,
@@ -8,7 +9,7 @@ const Panel = ({
   children: React.ReactNode;
   styleFromParent: string;
 }) => {
-  const theme = useSelector((state: RootState) => state.theme.value);
+  let theme = useSelector(getTheme);
 
   return (
     <div

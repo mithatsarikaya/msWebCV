@@ -1,3 +1,4 @@
+import { RootState } from "@/store/store";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
@@ -25,5 +26,7 @@ export const themeSlice = createSlice({
 
 // Action creators are generated for each case reducer function
 export const { toggleTheme } = themeSlice.actions;
+export const getTheme = (state: RootState) => state.theme.value;
+// export const theme = (state: RootState) => state.theme.value;
 
 export default themeSlice.reducer;

@@ -1,6 +1,9 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import Providers from "./providers";
+import styles from "./layout.module.css";
+import { Inter } from "next/font/google";
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Mithat Sarikaya Portfolio",
@@ -26,7 +29,9 @@ export default function RootLayout({
           <div className={styles.panel}>{children}</div>
         </body>
       </Provider> */}
-      <Providers>{children}</Providers>,
+      <body className={`${styles.body} ${inter.className}`}>
+        <Providers>{children}</Providers>,
+      </body>
     </html>
   );
 }

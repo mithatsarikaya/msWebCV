@@ -1,11 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import styles from "./lightdarkmode.module.css";
 import Image from "next/image";
-import { RootState } from "@/store/store";
-import { toggleTheme } from "@/store/features/thememode/thememodeSlice";
+import {
+  getTheme,
+  toggleTheme,
+} from "@/store/features/thememode/thememodeSlice";
 
 const LightDarkMode = () => {
-  const theme = useSelector((state: RootState) => state.theme.value);
+  const theme = useSelector(getTheme);
   const dispatch = useDispatch();
 
   let lightModeIconUrl = "/icons/icons8-light-mode-64.png";

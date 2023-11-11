@@ -4,7 +4,7 @@ import styles from "./sidebar.module.css";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useSelector } from "react-redux";
-import { RootState } from "@/store/store";
+import { getTheme } from "@/store/features/thememode/thememodeSlice";
 
 type TInsideRoutes = { title: string; link: string }[];
 type TOuterRoutes = { title: string; link: string; iconSrc: string }[];
@@ -39,9 +39,7 @@ const SideBar = ({ styleFromParent }: { styleFromParent: string }) => {
     },
   ];
 
-  const theme = useSelector((state: RootState) => state.theme.value);
-
-  console.log(theme);
+  const theme = useSelector(getTheme);
 
   return (
     <div
