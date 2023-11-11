@@ -12,7 +12,7 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <SideBar styleFromParent={styles.layoutSideBar} />
-      <Panel children={children} styleFromParent={styles.panel} />
+      <Panel styleFromParent={styles.panel}>{children}</Panel>
       <LightDarkMode />
     </Provider>
   );
