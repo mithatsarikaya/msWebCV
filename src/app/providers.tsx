@@ -9,6 +9,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { toggleTheme } from "@/store/features/thememode/thememodeSlice";
 import { Inter } from "next/font/google";
 import { useEffect, useState } from "react";
+import Panel from "./components/Panel/Panel";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -25,14 +26,14 @@ export default function Providers({ children }: { children: React.ReactNode }) {
 
   // console.log({ mounted });
 
-  //TODO: try to get redux state at body tag
+  //TODOne: try to get redux state at body tag
 
   return (
     <Provider store={store}>
       <body className={`${styles.body} ${inter.className}`}>
         <SideBar styleFromParent={styles.layoutSideBar} />
-
-        <div className={styles.panel}>{children}</div>
+        <Panel children={children} styleFromParent={styles.panel} />
+        {/* <div className={styles.panel}>{children}</div> */}
         <LightDarkMode />
       </body>
     </Provider>

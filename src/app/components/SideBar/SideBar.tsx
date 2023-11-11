@@ -3,7 +3,7 @@ import Link from "next/link";
 import styles from "./sidebar.module.css";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import { RootState } from "@/store/store";
 
 type TInsideRoutes = { title: string; link: string }[];
@@ -46,9 +46,7 @@ const SideBar = ({ styleFromParent }: { styleFromParent: string }) => {
   return (
     <div
       className={
-        theme == "dark"
-          ? `${styleFromParent} ${styles.darkMode}`
-          : styleFromParent
+        theme == "dark" ? `${styleFromParent} darkMode` : styleFromParent
       }
     >
       <aside className={styles.aside}>

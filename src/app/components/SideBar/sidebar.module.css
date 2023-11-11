@@ -30,11 +30,6 @@
     brightness(100%) contrast(100%);
 }
 
-.darkMode {
-  color: white;
-  background-color: black;
-}
-
 .icon:hover {
   background-color: var(--main-gray);
 }
