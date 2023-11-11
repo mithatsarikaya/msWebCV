@@ -13,7 +13,6 @@ import { useEffect, useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Providers({ children }: { children: React.ReactNode }) {
-  const theme = useSelector((state: RootState) => state.theme);
   // const [mounted, setMounted] = useState(false);
 
   // useEffect(() => {
@@ -31,9 +30,8 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   return (
     <Provider store={store}>
       <body className={`${styles.body} ${inter.className}`}>
-        <div className={styles.layoutSideBar}>
-          <SideBar />
-        </div>
+        <SideBar styleFromParent={styles.layoutSideBar} />
+
         <div className={styles.panel}>{children}</div>
         <LightDarkMode />
       </body>

@@ -8,7 +8,7 @@ import { RootState } from "@/store/store";
 
 type TInsideRoutes = { title: string; link: string }[];
 type TOuterRoutes = { title: string; link: string; iconSrc: string }[];
-const SideBar = () => {
+const SideBar = ({ styleFromParent }: { styleFromParent: string }) => {
   let pathname = usePathname();
 
   const insideRoutes: TInsideRoutes = [
@@ -44,45 +44,53 @@ const SideBar = () => {
   console.log(theme);
 
   return (
-    <aside className={styles.aside}>
-      <Link style={{ textDecoration: "none" }} href={"/"}>
-        <h3>Mithat Sarıkaya</h3>
-      </Link>
-      <p className={styles.mithatsTitle}>Frontend Developer</p>
-      <div className={styles.icons}>
-        {outerRoutes.map((or) => (
-          <Link key={or.title} href={or.link} target="_blank">
-            <Image
-              className={
-                theme == "dark" && or.title == "Github"
-                  ? `${styles.icon} ${styles.darkMode}`
-                  : styles.icon
-              }
-              src={or.iconSrc}
-              height={64}
-              width={64}
-              alt={`${or.title} icon`}
-            />
-          </Link>
-        ))}
-      </div>
+    <div
+      className={
+        theme == "dark"
+          ? `${styleFromParent} ${styles.darkMode}`
+          : styleFromParent
+      }
+    >
+      <aside className={styles.aside}>
+        <Link style={{ textDecoration: "none" }} href={"/"}>
+          <h3>Mithat Sarıkaya</h3>
+        </Link>
+        <p className={styles.mithatsTitle}>Frontend Developer</p>
+        <div className={styles.icons}>
+          {outerRoutes.map((or) => (
+            <Link key={or.title} href={or.link} target="_blank">
+              <Image
+                className={
+                  theme == "dark" && or.title == "Github"
+                    ? `${styles.icon} ${styles.darkModeGitHubIcon}`
+                    : styles.icon
+                }
+                src={or.iconSrc}
+                height={64}
+                width={64}
+                alt={`${or.title} icon`}
+              />
+            </Link>
+          ))}
+        </div>
 
-      <nav className={styles.routeContainer}>
-        {insideRoutes.map((r) => (
-          <Link
-            key={r.title}
-            className={
-              pathname == r.link
-                ? `${styles.link} ${styles.activeLink}`
-                : styles.link
-            }
-            href={r.link}
-          >
-            {r.title}
-          </Link>
-        ))}
-      </nav>
-    </aside>
+        <nav className={styles.routeContainer}>
+          {insideRoutes.map((r) => (
+            <Link
+              key={r.title}
+              className={
+                pathname == r.link
+                  ? `${styles.link} ${styles.activeLink}`
+                  : styles.link
+              }
+              href={r.link}
+            >
+              {r.title}
+            </Link>
+          ))}
+        </nav>
+      </aside>
+    </div>
   );
 };
 

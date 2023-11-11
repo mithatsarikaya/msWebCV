@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
+type ThemeStateOptions = "dark" | "light";
+
 export interface ThemeState {
-  value: "dark" | "light";
+  value: ThemeStateOptions;
 }
 
+let initialThemeValue: ThemeStateOptions = "light";
+
 const initialState: ThemeState = {
-  value: "dark",
+  value: initialThemeValue,
 };
 
 export const themeSlice = createSlice({
