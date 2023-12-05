@@ -26,6 +26,7 @@ export type Skill =
   | "JavaScript"
   | "TypeScript"
   | "React.js"
+  | "Astro"
   | "Node.js"
   | "HTML"
   | "CSS"
@@ -162,6 +163,17 @@ export const personalProjects: TpersonalProjects = {
       title: "React Challenges",
       oneLineDescription: "Solving React interview questions that i see online",
       pictureSrc: "/projectPngs/reactChallenges.png",
+    },
+    {
+      id: "6",
+      details:
+        "My personal blog website where i plan to share some code snippets for now",
+      url: "https://blog.baslanbas.com/",
+      githubLink: "private",
+      techStack: ["HTML", "CSS", "TypeScript", "Astro"],
+      title: "nuuklu Blog",
+      oneLineDescription: "Classic personal blog website",
+      pictureSrc: "/projectPngs/nuukluBlog.png",
     },
   ],
   smallRepos: {
