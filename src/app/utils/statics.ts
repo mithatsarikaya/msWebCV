@@ -134,7 +134,7 @@ export const personalProjects: TpersonalProjects = {
     },
     {
       id: "4",
-      title: "www.baslanbas.com v2",
+      title: "bas.baslanbas.com v2",
       oneLineDescription:
         "UI is far better than first version of it (old.baslanbas.com)",
       usefulFor: `If you want to record your exercise session in order to see your progress, this app is just for you. This is a type of an app that functionality comes before design.`,
@@ -150,7 +150,7 @@ export const personalProjects: TpersonalProjects = {
         "JOSE",
       ],
       githubLink: "private",
-      url: "https://www.baslanbas.com/",
+      url: "https://bas.baslanbas.com/",
       possibleDelay: false,
       pictureSrc: "/projectPngs/blbv2.png",
     },
@@ -168,7 +168,7 @@ export const personalProjects: TpersonalProjects = {
       id: "6",
       details:
         "My personal blog website where i plan to share some code snippets for now",
-      url: "https://blog.baslanbas.com/",
+      url: "https://www.baslanbas.com/",
       githubLink: "private",
       techStack: ["HTML", "CSS", "TypeScript", "Astro"],
       title: "nuuklu Blog",
