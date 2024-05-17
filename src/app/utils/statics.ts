@@ -175,6 +175,16 @@ export const personalProjects: TpersonalProjects = {
       oneLineDescription: "Classic personal blog website",
       pictureSrc: "/projectPngs/nuukluBlog.png",
     },
+    {
+      id: "7",
+      details: "Website of a private spring production company",
+      url: "https://www.ersayay.com/",
+      githubLink: "private",
+      techStack: ["HTML", "CSS", "TypeScript", "Next.js"],
+      title: "Ersayay Company",
+      oneLineDescription: "Spring production company's multilingual website",
+      pictureSrc: "/projectPngs/ersayaywebsite.png",
+    },
   ],
   smallRepos: {
     desc: `This repos was created to understand the difference between react.js’ state based and vanilla.js' event based logic. All of them written with react.js and vanilla.js`,
